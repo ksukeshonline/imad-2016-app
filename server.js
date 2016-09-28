@@ -6,20 +6,40 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var articleone = {
-    title: 'Article One| SUKESH KUMAR K',
-    heading:'Article One',
-    date:'sep 5  2016',
-    content: `<p>
-                  This is the content for my first article. This is the content for my first article This is the content for my first article This is the content for my first article This is the content for my first article This is the content for my first article
-              </p>
-                <p>
-                  This is the content for my first article. This is the content for my first article This is the content for my first article This is the content for my first article This is the content for my first article This is the content for my first article
-              </p>
-                <p>
-                  This is the content for my first article. This is the content for my first article This is the content for my first article This is the content for my first article This is the content for my first article This is the content for my first article
-              </p>`
-
+var articles = {
+        articleone : {
+            title: 'Article One| SUKESH KUMAR K',
+            heading:'Article One',
+            date:'sep 5  2016',
+            content: `<p>
+                          This is the content for my first article. This is the content for my first article This is the content for my first article This is the content for my first article This is the content for my first article This is the content for my first article
+                      </p>
+                        <p>
+                          This is the content for my first article. This is the content for my first article This is the content for my first article This is the content for my first article This is the content for my first article This is the content for my first article
+                      </p>
+                        <p>
+                          This is the content for my first article. This is the content for my first article This is the content for my first article This is the content for my first article This is the content for my first article This is the content for my first article
+                      </p>`
+        
+        },
+        articleTwo : {
+            title: 'Article Two| SUKESH KUMAR K',
+            heading:'Article Two',
+            date:'sep 10  2016',
+            content: `
+            <p>
+                          This is the content for my second article. 
+                      </p>`
+                },
+        articleThree :{
+            title: 'Article Three| SUKESH KUMAR K',
+            heading:'Article Third',
+            date:'sep 15   2016',
+            content: `
+            <p>
+                          This is the content for my third article. 
+                      </p>`
+        }
 };
 
 function createTemplate (data) {
@@ -56,9 +76,9 @@ function createTemplate (data) {
           </body>
         </html>
         ;
-
     return htmltemplate;
 }
+ 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
